@@ -7,11 +7,16 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wc20nbr4s6&&callback=initMap">
-    </script>
+    <!-- <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wc20nbr4s6&&callback=initMap"
+    >
+    </script> -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4403c3283d413a848eb0c34c8bd3804a" onload="window.kakao = kakao;"></script>
     <script>
-      function inintMap () {
-        window.naver = naver;
+      function inintMap() {
+        // window.naver = naver;
+        window.kakao = kakao;
       }
     </script>
   </body>

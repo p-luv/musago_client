@@ -13,7 +13,7 @@
           height: 100%;
   
           li {
-              width: 25%;
+              width: 33.3%;
               height: 100%;
               position: relative;
               a {
@@ -30,7 +30,8 @@
                       top: 50%;
                       left: 50%;
                       transform: translate(-50%, -50%);
-  
+                      width: 35px;
+                      height: 35px;
                       &.active {
                           display: none;
                       }

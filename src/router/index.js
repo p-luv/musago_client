@@ -22,6 +22,7 @@ function App() {
             <Route path="/signin" component={Pages.SignIn} />
             <Route path="/signup/:id" component={Pages.SignUp} />
             <DefaultLayout>
+              <PrivateRoute path="/map" component={Pages.Map} />
             </DefaultLayout>
             </Switch>
           </Router>

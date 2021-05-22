@@ -10,13 +10,15 @@ import PrivateRoute from './PrivateRoute';
 import * as Pages from '../pages';
 
 function App() {
+
   return (
     <div className="App">
       <div className="wrap">
         <AuthProvider>
           <Router>
             <Switch>
-            <PrivateRoute exact path="/signin" component={Pages.SignIn} />
+            <PrivateRoute path="/signin" component={Pages.SignIn} />
+            <PrivateRoute path="/signup/:id" component={Pages.SignUp} />
             </Switch>
           </Router>
         </AuthProvider>

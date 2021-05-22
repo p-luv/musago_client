@@ -3,7 +3,7 @@ import './index.scss';
 import classNames from 'classnames';
 
 const ButtonTypeOne = ({name, onClick, isActive}) => {
-  return <button className={classNames("ButtonTypeOne", {active: isActive})} onClick={onClick} disabled={isActive}>
+  return <button className={classNames("ButtonTypeOne", {active: isActive})} onClick={onClick} disabled={!isActive}>
     {name}
   </button>;
 };

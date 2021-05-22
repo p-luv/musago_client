@@ -1,0 +1,22 @@
+.SignIn{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  .InputBox + .InputBox{
+    margin-top: 30px;
+  }
+
+  .ButtonTypeOne{
+    margin-top: 48px;
+    margin-bottom: 14px;
+  }
+  a{
+    color: #00FF19;
+    font-size: 12px;
+  }
+  
+}

@@ -16,7 +16,7 @@ function App() {
         <AuthProvider>
           <Router>
             <Switch>
-            {/* <PrivateRoute exact path="/" component={} /> */}
+            <PrivateRoute exact path="/signin" component={Pages.SignIn} />
             </Switch>
           </Router>
         </AuthProvider>

@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import * as Pages from '../pages';
+import FullSizeLayout from '../layouts/FullSizeLayout';
+import DefaultLayout from '../layouts/DefaultLayout'
 
 function App() {
 
@@ -17,8 +19,10 @@ function App() {
         <AuthProvider>
           <Router>
             <Switch>
-            <PrivateRoute path="/signin" component={Pages.SignIn} />
-            <PrivateRoute path="/signup/:id" component={Pages.SignUp} />
+            <Route path="/signin" component={Pages.SignIn} />
+            <Route path="/signup/:id" component={Pages.SignUp} />
+            <DefaultLayout>
+            </DefaultLayout>
             </Switch>
           </Router>
         </AuthProvider>

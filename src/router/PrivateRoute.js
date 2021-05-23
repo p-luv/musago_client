@@ -6,13 +6,13 @@ import {
 import { AuthContext } from '../contexts/Auth';
 
 const PrivateRouter = ({ component: RouteComponent, ...rest }) => {
-  const { userInfo, loading } = useContext(AuthContext);
+  const { token, loading } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (1) {
+        if (token) {
           return <RouteComponent {...props} />;
         }
         return (

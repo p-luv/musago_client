@@ -12,7 +12,6 @@ import FullSizeLayout from '../layouts/FullSizeLayout';
 import DefaultLayout from '../layouts/DefaultLayout'
 
 function App() {
-
   return (
     <div className="App">
       <div className="wrap">
@@ -22,7 +21,7 @@ function App() {
             <Route path="/signin" component={Pages.SignIn} />
             <Route path="/signup/:id" component={Pages.SignUp} />
             <DefaultLayout>
-              <PrivateRoute path="/map" component={Pages.Map} />
+              <PrivateRoute path="/" component={Pages.Map} />
             </DefaultLayout>
             </Switch>
           </Router>

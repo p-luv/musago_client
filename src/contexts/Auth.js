@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 export const AuthContext = React.createContext(undefined);
 
 export const AuthProvider = ({ children }) => {
-  const { loading, userInfo, setUserInfo } = useProvideAuth();
+  const { loading, token, setToken } = useProvideAuth();
 
   return (
     <AuthContext.Provider
       value={{
         loading,
-        userInfo,
-        setUserInfo
+        token,
+        setToken
       }}
     >
       {children}
@@ -21,14 +21,14 @@ export const AuthProvider = ({ children }) => {
 // Hook
 export const useProvideAuth = () => {
   const [loading, setLoading] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
+  const [token, setToken] = useState(false);
 
   useEffect(() => {
 
   }, []);
   return {
     loading,
-    userInfo,
-    setUserInfo
+    token,
+    setToken
   };
 };

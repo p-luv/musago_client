@@ -3,8 +3,8 @@ import './index.scss';
 
 const Loading = () => {
   return (
-    <div class="Loader">
-      <div class="loader"></div>
+    <div className="Loader">
+      <div className="loader"></div>
     </div>
   );
 };

@@ -1,10 +1,9 @@
 export const getGeoLocation = (successCallBack, errorCallback) => {
   let temp;
 
-
   const options = {
     enableHighAccuracy: true,
-    maximumAge: 0
+    maximumAge: 0,
   };
 
   if (navigator.geolocation) {
@@ -19,7 +18,7 @@ export const getGeoLocation = (successCallBack, errorCallback) => {
 };
 
 export const getDistance = (lat1, lng1, lat2, lng2) => {
-  const deg2rad = deg => {
+  const deg2rad = (deg) => {
     return deg * (Math.PI / 180);
   };
   const r = 6371;

@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState, useContext } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useContext,
+} from 'react';
 import './index.scss';
 import useInput from '../../hooks/useInput';
 import InputBox from '../../components/InputBox';
@@ -7,7 +13,7 @@ import { useHistory, Route, useParams } from 'react-router-dom';
 import backIcon from '../../assets/images/arrow_back_ios_black.svg';
 import classNames from 'classnames';
 import Loader from '../../components/Loader';
-import { postToSignIn, postToSignUp } from '../../api';
+import { postToSignUp } from '../../api';
 import { AuthContext } from '../../contexts/Auth';
 
 const Signup = () => {
@@ -22,7 +28,6 @@ const Signup = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const { setToken } = useContext(AuthContext);
-  
 
   const onClickMoveToNext = useCallback(() => {
     history.push('/signup/2');
@@ -40,10 +45,10 @@ const Signup = () => {
       password2: passwordCheck,
       nickname: nickName,
       carno: vehicleNumber,
-      optype: level
-    }
-    const {data} =  await postToSignUp(userData);
-    setToken(data.Token)
+      optype: level,
+    };
+    const { data } = await postToSignUp(userData);
+    setToken(data.Token);
     setLoading(false);
     history.push('/');
   }, [userId, password, passwordCheck, nickName, vehicleNumber, level]);

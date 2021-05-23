@@ -9,9 +9,7 @@ export const api = axios.create({
 });
 
 export const postToSignUp = (data) => {
-  return api.post('/signup', data, {
-    // headers: { 'Content-Type': 'multipart/form-data' },
-  });
+  return api.post('/signup', data, {});
 };
 
 export const postToSignIn = (data) => {
@@ -21,7 +19,7 @@ export const postToSignIn = (data) => {
 export const getToPoint = (token) => {
   return api.get('/point/', {
     headers: {
-      Authorization: `Token ${'642ff32576bbaf2411fa3d2b300ee1c00ea259f9'}`,
+      Authorization: `Token ${token}`,
     },
   });
 };

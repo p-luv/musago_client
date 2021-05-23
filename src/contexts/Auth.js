@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         loading,
         token,
-        setToken
+        setToken,
       }}
     >
       {children}
@@ -18,17 +18,14 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Hook
 export const useProvideAuth = () => {
   const [loading, setLoading] = useState(false);
   const [token, setToken] = useState(false);
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
   return {
     loading,
     token,
-    setToken
+    setToken,
   };
 };

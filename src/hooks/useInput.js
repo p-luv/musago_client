@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useState,
-  ChangeEvent,
-} from 'react';
+import { useCallback, useState } from 'react';
 
 const useInput = (initialData) => {
   const [value, setValue] = useState(initialData);

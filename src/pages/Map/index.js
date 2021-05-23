@@ -6,10 +6,10 @@ import React, {
   useContext,
 } from 'react';
 import './index.scss';
-import { getGeoLocation } from '../../utils';
 import { AuthContext } from '../../contexts/Auth';
 import { getToPoint } from '../../api';
 import classNames from 'classnames';
+import { getGeoLocation } from '../../utils'; // -> 추후 실시간 watch 로 location 정보 받아올 예정
 
 const Map = () => {
   const mapRef = useRef();
@@ -19,13 +19,18 @@ const Map = () => {
   const [tempUserMarker, setTempUserMarker] = useState(null);
   const [alert, setAlert] = useState('');
   const { token } = useContext(AuthContext);
-  const [pointData, setPointData] = useState({interventions: 0, score: 0, speed: 0, speeding: 0, user: 10});
+  const [pointData, setPointData] = useState({
+    interventions: 0,
+    score: 0,
+    speed: 0,
+    speeding: 0,
+    user: 10,
+  });
   const [scoreModal, setScoreModal] = useState(false);
 
   useEffect(() => {
     if (1) {
       getToPoint(token).then((data) => {
-        console.log(data.data);
         setPointData(data.data[0]);
       });
     }
@@ -45,11 +50,10 @@ const Map = () => {
       longitude: longitude,
     };
     setUserLocation(userObj);
-    const imageSrc = '/avatar_m.png', // 마커이미지의 주소입니다
-      imageSize = new window.kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
-      imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    const imageSrc = '/avatar_m.png',
+      imageSize = new window.kakao.maps.Size(30, 30),
+      imageOption = { offset: new window.kakao.maps.Point(27, 69) };
 
-    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
     const markerImage = new window.kakao.maps.MarkerImage(
       imageSrc,
       imageSize,
@@ -58,7 +62,7 @@ const Map = () => {
 
     const marker = new window.kakao.maps.Marker({
       position: mapPosition,
-      image: markerImage, // 마커이미지 설정
+      image: markerImage,
     });
     marker.setMap(mapObj);
     setMapObj(mapObj);
@@ -83,22 +87,21 @@ const Map = () => {
         const imageSrc = '/avatar_w.png',
           imageSize = new window.kakao.maps.Size(30, 30),
           imageOption = { offset: new window.kakao.maps.Point(27, 69) };
-        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+
         const markerImage = new window.kakao.maps.MarkerImage(
           imageSrc,
           imageSize,
           imageOption
         );
-        // 마커를 생성합니다
+
         const tempUserMarker = new window.kakao.maps.Marker({
           position: mapPosition,
-          image: markerImage, // 마커이미지 설정
+          image: markerImage,
         });
         tempUserMarker.setMap(mapObj);
         setTempUserMarker(tempUserMarker);
         const testInterval = setInterval(function () {
           setTempUser((user) => {
-            console.log(user.latitude - userLocation.latitude);
             return {
               ...user,
               latitude: user.latitude + 0.0001,
@@ -120,7 +123,6 @@ const Map = () => {
           setAlert('bottom red');
           if (window.speechSynthesis) {
             const speechSynthesis = window.speechSynthesis;
-            console.log(speechSynthesis);
             let utterance = new SpeechSynthesisUtterance('look out');
             speechSynthesis.speak(utterance);
           }
@@ -140,9 +142,9 @@ const Map = () => {
   useEffect(() => {
     let tempLocation;
     if (window.kakao) {
-      // tempLocation = getGeoLocation(successCallBack, errorCallBack);
       navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
     }
+    // 추후 getGeoLocation 로 실시간 데이터 받아올 때 아래 코드 사용 예정
     // return navigator.geolocation.clearWatch(tempLocation);
   }, [window.kakao]);
 
@@ -154,7 +156,12 @@ const Map = () => {
         <div className="map-box" ref={mapRef}></div>
         {alert && <div className={`alert ${alert}`}></div>}
       </div>
-      <div className={classNames('score-modal', { isShown: scoreModal })} onClick={()=> {setScoreModal(false)}}>
+      <div
+        className={classNames('score-modal', { isShown: scoreModal })}
+        onClick={() => {
+          setScoreModal(false);
+        }}
+      >
         <div className="modal-title">
           <p>Your</p>
           <p>

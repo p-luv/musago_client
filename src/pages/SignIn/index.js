@@ -6,7 +6,7 @@ import NextButton from '../../components/ButtonTypeOne';
 import Loader from '../../components/Loader';
 import { useHistory, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth';
-import { postToSignIn, postToSignUp } from '../../api';
+import { postToSignIn } from '../../api';
 import logo from '../../assets/images/logo.png';
 
 const SignIn = () => {
@@ -16,14 +16,14 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const { setToken } = useContext(AuthContext);
 
-  const moveTomain = useCallback(async() => {
+  const moveTomain = useCallback(async () => {
     setLoading(true);
     const userData = {
       username: userId,
-      password: password
-    }
-    const {data} =  await postToSignIn(userData);
-    setToken(data.Token)
+      password: password,
+    };
+    const { data } = await postToSignIn(userData);
+    setToken(data.Token);
     setLoading(false);
 
     history.push('/');
@@ -59,14 +59,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-// import React from 'react';
-// import './index.scss';
-
-// const SignIn = () => {
-//   return <div className="SignIn">
-
-//   </div>;
-// };
-
-// export default SignIn;

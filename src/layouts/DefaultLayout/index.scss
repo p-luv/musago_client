@@ -1,60 +1,58 @@
-.DefaultLayout{
+.DefaultLayout {
   width: 100%;
   height: 100%;
   .menu {
-      position: absolute;
-      height: 8%;
-      width: 100%;
-  
-      ul {
-          display: flex;
-          flex-flow: row;
-          align-items: center;
-          height: 100%;
-  
-          li {
-              width: 33.3%;
-              height: 100%;
-              position: relative;
-              a {
-                  width: 60%;
-                  height: 90%;
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-  
-                  img {
-                      width: 60%;
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      width: 35px;
-                      height: 35px;
-                      &.active {
-                          display: none;
-                      }
-  
-                      &.non-active {
-                          display: initial;
-                      }
-                  }
-  
-                  &.selected {
-                      // border-bottom: 2px solid $black;
-  
-                      img {
-                          &.active {
-                              display: initial;
-                          }
-                          &.non-active {
-                              display: none;
-                          }
-                      }
-                  }
-              }
+    position: absolute;
+    height: 8%;
+    width: 100%;
+
+    ul {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      height: 100%;
+
+      li {
+        width: 33.3%;
+        height: 100%;
+        position: relative;
+        a {
+          width: 60%;
+          height: 90%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          img {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35px;
+            height: 35px;
+            &.active {
+              display: none;
+            }
+
+            &.non-active {
+              display: initial;
+            }
           }
+
+          &.selected {
+            img {
+              &.active {
+                display: initial;
+              }
+              &.non-active {
+                display: none;
+              }
+            }
+          }
+        }
       }
+    }
   }
 }

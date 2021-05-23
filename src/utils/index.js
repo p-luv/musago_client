@@ -1,16 +1,6 @@
-export const getGeoLocation = (socket, socketName) => {
+export const getGeoLocation = (successCallBack, errorCallback) => {
   let temp;
-  const successCallBack = position => {
-    // socket.emit(`${socketName}`, {
-    //   lat: position.coords.latitude,
-    //   lng: position.coords.longitude
-    // });
-    console.log(position.coords)
 
-  };
-  const errorCallback = error => {
-    console.log(error);
-  };
 
   const options = {
     enableHighAccuracy: true,

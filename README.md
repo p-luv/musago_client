@@ -12,7 +12,7 @@ A ‘safety system’ which allows drivers to ‘recognize’ different types of
 
 **[Client GitHub](https://github.com/p-luv/musago_client)**
 
-[**Server GitHub**](https://github.com/p-luv/musago_client)
+[**Server GitHub**](https://github.com/p-luv/musago_server)
 
 
 

@@ -29,7 +29,7 @@ const Map = () => {
   const [scoreModal, setScoreModal] = useState(false);
 
   useEffect(() => {
-    if (1) {
+    if (token) {
       getToPoint(token).then((data) => {
         setPointData(data.data[0]);
       });
